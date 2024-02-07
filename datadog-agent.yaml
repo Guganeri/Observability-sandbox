@@ -9,20 +9,20 @@ datadog:
   logs:
     enabled: true
     containerCollectAll: true
-#  serviceMonitoring:
-#    enabled: true
+  serviceMonitoring:
+    enabled: true
   networkMonitoring:
     enabled: true 
   kubelet:
     tlsVerify: false
   readinessProbe:
-    initialDelaySeconds: 60
+    initialDelaySeconds: 15
     periodSeconds: 15
-    timeoutSeconds: 60
+    timeoutSeconds: 15
     successThreshold: 1
     failureThreshold: 6
 clusterAgent:
-  replicas: 2
+  replicas: 3
   createPodDisruptionBudget: true
   metricsProvider: 
     useDatadogMetrics: true
