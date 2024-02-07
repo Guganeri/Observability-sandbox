@@ -1,0 +1,12 @@
+helm install datadog -n datadog \
+--set datadog.clusterName='aksenvironment01' \
+--set datadog.site="datadoghq.eu" \
+--set datadog.clusterAgent.replicas='2' \
+--set datadog.clusterAgent.createPodDisruptionBudget='true' \
+--set datadog.kubeStateMetricsEnabled=true \
+--set datadog.kubeStateMetricsCore.enabled=true \
+--set datadog.logs.enabled=true \
+--set datadog.logs.containerCollectAll=true \
+--set datadog.apiKey='9beb0a750eaaf48b9438a8ddc58a3b8c' \
+--set datadog.processAgent.enabled=true \
+datadog/datadog --create-namespace

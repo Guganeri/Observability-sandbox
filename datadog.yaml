@@ -1,0 +1,28 @@
+datadog:
+  apiKeyExistingSecret: datadog-secret
+  site: datadoghq.eu
+  tags:
+    - env:teste-appoena
+  apm:
+    instrumentation:
+      enabled: true
+  logs:
+    enabled: true
+    containerCollectAll: true
+#  serviceMonitoring:
+#    enabled: true
+  networkMonitoring:
+    enabled: true 
+  kubelet:
+    tlsVerify: false
+  readinessProbe:
+    initialDelaySeconds: 60
+    periodSeconds: 15
+    timeoutSeconds: 60
+    successThreshold: 1
+    failureThreshold: 6
+clusterAgent:
+  replicas: 2
+  createPodDisruptionBudget: true
+  metricsProvider: 
+    useDatadogMetrics: true
